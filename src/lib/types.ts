@@ -71,3 +71,9 @@ export interface LocationInfo {
   paymentMethods: string[];
   parkingNote: string;
 }
+
+export interface Branch {
+  id: number;
+  name: string;
+  address: string;
+}

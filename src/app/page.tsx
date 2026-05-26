@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { services } from '@/lib/data/services';
 import { barbers } from '@/lib/data/barbers';
 import { cuts } from '@/lib/data/cuts';
-import { hours, locationInfo, formatHours } from '@/lib/data/hours';
+import { hours, locationInfo, formatHours, branches } from '@/lib/data/hours';
 import { PageHero } from '@/components/ui/PageHero';
 import { SectionLabel } from '@/components/ui/SectionLabel';
 import { EditorialLink } from '@/components/ui/EditorialLink';
@@ -107,14 +107,15 @@ export default function HomePage() {
           transition={{ duration: 0.5, delay: 0.1 }}
         >
           <SectionLabel number="04" title="Location & Hours" className="mb-4" />
-          <div className="mb-6">
-            <p className="text-[15px] font-semibold text-black">{locationInfo.name}</p>
-            <p className="text-[14px] text-[var(--color-text-secondary)] mt-1">
-              {locationInfo.street}
-            </p>
-            <p className="text-[14px] text-[var(--color-text-secondary)]">
-              {locationInfo.city}
-            </p>
+          <div className="mb-6 space-y-3">
+            {branches.map((b) => (
+              <div key={b.id} className="border-l border-black pl-3 py-0.5">
+                <p className="text-[14px] font-bold text-black">{b.name}</p>
+                <p className="text-[13px] text-[var(--color-text-secondary)] mt-0.5">
+                  {b.address}
+                </p>
+              </div>
+            ))}
           </div>
           <div className="space-y-1.5">
             {hours.map((h) => (

@@ -1,4 +1,4 @@
-import { hours, locationInfo, formatHours } from '@/lib/data/hours';
+import { hours, locationInfo, formatHours, branches } from '@/lib/data/hours';
 import { PageHero } from '@/components/ui/PageHero';
 import { SectionLabel } from '@/components/ui/SectionLabel';
 import { EditorialLink } from '@/components/ui/EditorialLink';
@@ -12,10 +12,13 @@ export default function LocationPage() {
         {/* Address + CTAs */}
         <div>
           <SectionLabel number="01" title="Address" className="mb-4" />
-          <div className="mb-6">
-            <p className="text-[16px] font-semibold text-black">{locationInfo.name}</p>
-            <p className="text-[15px] text-[var(--color-text-secondary)] mt-1">{locationInfo.street}</p>
-            <p className="text-[15px] text-[var(--color-text-secondary)]">{locationInfo.city}</p>
+          <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
+            {branches.map((b) => (
+              <div key={b.id} className="border-l border-black pl-3 py-0.5">
+                <p className="text-[15px] font-bold text-black">{b.name}</p>
+                <p className="text-[14px] text-[var(--color-text-secondary)] mt-1">{b.address}</p>
+              </div>
+            ))}
           </div>
           <div className="flex flex-col sm:flex-row gap-4">
             <EditorialLink href={locationInfo.mapsUrl} external>Open in Maps</EditorialLink>

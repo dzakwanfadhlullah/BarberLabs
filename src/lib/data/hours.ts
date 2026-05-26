@@ -1,4 +1,4 @@
-import { Hour, LocationInfo } from '@/lib/types';
+import { Hour, LocationInfo, Branch } from '@/lib/types';
 
 export const hours: Hour[] = [
   { day: 'Mon', open: '', close: '', isClosed: true },
@@ -10,11 +10,17 @@ export const hours: Hour[] = [
   { day: 'Sun', open: '', close: '', isClosed: true },
 ];
 
+export const branches: Branch[] = [
+  { id: 1, name: 'Barber Labs 1', address: 'Jln. Jatinangor No. 142' },
+  { id: 2, name: 'Barber Labs 2', address: 'Jln. Jatinangor No. 172' },
+  { id: 3, name: 'Barber Labs 3', address: 'Jln. Jatinangor No. 75' },
+];
+
 export const locationInfo: LocationInfo = {
   name: 'Barber Labs',
-  street: '124 Industrial Ave',
-  city: 'Brooklyn, NY 11237',
-  mapsUrl: 'https://maps.google.com/?q=124+Industrial+Ave+Brooklyn+NY+11237',
+  street: 'Jln. Jatinangor No. 142',
+  city: 'Sumedang, Jawa Barat',
+  mapsUrl: 'https://maps.google.com/?q=Jatinangor',
   whatsappNumber: '+6281234567890',
   whatsappUrl: 'https://wa.me/6281234567890',
   paymentMethods: ['Cash', 'QRIS', 'Bank Transfer'],

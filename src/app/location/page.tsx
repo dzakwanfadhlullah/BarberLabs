@@ -14,7 +14,7 @@ export default function LocationPage() {
           <SectionLabel number="01" title="Address" className="mb-4" />
           <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
             {branches.map((b) => (
-              <div key={b.id} className="border-l border-black pl-3 py-0.5">
+              <div key={b.id} className="py-0.5">
                 <p className="text-[15px] font-bold text-black">{b.name}</p>
                 <p className="text-[14px] text-[var(--color-text-secondary)] mt-1">{b.address}</p>
               </div>

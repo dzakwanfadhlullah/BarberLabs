@@ -11,9 +11,9 @@ export const hours: Hour[] = [
 ];
 
 export const branches: Branch[] = [
-  { id: 1, name: 'Barber Labs 1', address: 'Jln. Jatinangor No. 142' },
-  { id: 2, name: 'Barber Labs 2', address: 'Jln. Jatinangor No. 172' },
-  { id: 3, name: 'Barber Labs 3', address: 'Jln. Jatinangor No. 75' },
+  { id: 1, name: 'Barber Labs 1', address: 'Jln. Jatinangor No. 142 (next to Bebek Nangor)' },
+  { id: 2, name: 'Barber Labs 2', address: 'Jln. Jatinangor No. 172 (across from Geprek Bebas)' },
+  { id: 3, name: 'Barber Labs 3', address: 'Jln. Jatinangor No. 75 (across from Griya Jatinangor)' },
 ];
 
 export const locationInfo: LocationInfo = {

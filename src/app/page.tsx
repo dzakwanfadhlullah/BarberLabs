@@ -109,7 +109,7 @@ export default function HomePage() {
           <SectionLabel number="04" title="Location & Hours" className="mb-4" />
           <div className="mb-6 space-y-3">
             {branches.map((b) => (
-              <div key={b.id} className="border-l border-black pl-3 py-0.5">
+              <div key={b.id} className="py-0.5">
                 <p className="text-[14px] font-bold text-black">{b.name}</p>
                 <p className="text-[13px] text-[var(--color-text-secondary)] mt-0.5">
                   {b.address}

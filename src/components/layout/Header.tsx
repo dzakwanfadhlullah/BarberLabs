@@ -28,9 +28,9 @@ export function Header() {
           <Image
             src="/images/logo.png"
             alt="Barberlabs"
-            width={180}
-            height={44}
-            className="h-10 md:h-11 w-auto"
+            width={400}
+            height={500}
+            className="h-200 md:h-11 w-auto"
             priority
           />
         </Link>
@@ -41,22 +41,20 @@ export function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className={`text-[15px] font-medium tracking-[-0.02em] transition-colors duration-180 hover:text-black ${
-                pathname === link.href
-                  ? 'text-black'
-                  : 'text-[var(--color-text-muted)]'
-              }`}
+              className={`text-[15px] font-medium tracking-[-0.02em] transition-colors duration-180 hover:text-black ${pathname === link.href
+                ? 'text-black'
+                : 'text-[var(--color-text-muted)]'
+                }`}
             >
               {link.label}
             </Link>
           ))}
           <Link
             href="/book"
-            className={`text-[15px] font-semibold tracking-[-0.02em] px-5 h-10 flex items-center transition-all duration-180 ${
-              isBookingPage
-                ? 'bg-black text-white'
-                : 'bg-black text-white hover:bg-[var(--color-gray-700)]'
-            }`}
+            className={`text-[15px] font-semibold tracking-[-0.02em] px-5 h-10 flex items-center transition-all duration-180 ${isBookingPage
+              ? 'bg-black text-white'
+              : 'bg-black text-white hover:bg-[var(--color-gray-700)]'
+              }`}
           >
             Book
           </Link>

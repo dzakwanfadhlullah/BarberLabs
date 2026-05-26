@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { locationInfo } from '@/lib/data/hours';
 
 export function Footer() {
@@ -31,18 +32,28 @@ export function Footer() {
             Maps
           </a>
         </div>
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-5">
           <Link
             href="/policy"
             className="text-[14px] font-medium text-[var(--color-text-muted)] hover:text-black transition-colors duration-180"
           >
             Policy
           </Link>
-          <span className="text-[13px] text-[var(--color-text-muted)]">
-            © 2026 Barber Labs
-          </span>
+          <div className="flex items-center gap-2">
+            <Image
+              src="/images/logo.png"
+              alt="Barberlabs"
+              width={80}
+              height={18}
+              className="h-[14px] w-auto opacity-40"
+            />
+            <span className="text-[13px] text-[var(--color-text-muted)]">
+              © 2026
+            </span>
+          </div>
         </div>
       </div>
     </footer>
   );
 }
+

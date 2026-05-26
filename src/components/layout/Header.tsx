@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { motion } from 'framer-motion';
 
@@ -22,12 +23,16 @@ export function Header() {
       className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-[var(--color-border-soft)]"
     >
       <div className="flex items-center justify-between px-[var(--page-padding-x)] h-[60px] md:h-[72px]">
-        {/* Brand */}
-        <Link
-          href="/"
-          className="text-[22px] md:text-[28px] font-bold tracking-[-0.04em] text-black"
-        >
-          Barber Labs
+        {/* Brand Logo */}
+        <Link href="/" className="flex items-center">
+          <Image
+            src="/images/logo.png"
+            alt="Barberlabs"
+            width={140}
+            height={32}
+            className="h-7 md:h-8 w-auto"
+            priority
+          />
         </Link>
 
         {/* Desktop Nav */}

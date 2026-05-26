@@ -1,6 +1,6 @@
-# Reference images
-ChatGPT Image*
-*.png
+# Reference images (root-level only)
+/ChatGPT Image*
+/barberlabs logo.png
 
 # Legacy static code
 legacy-vanilla-static/

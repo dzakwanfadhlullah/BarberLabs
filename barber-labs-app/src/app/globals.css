@@ -1,0 +1,104 @@
+@import "tailwindcss";
+
+:root {
+  /* Color System — Monochrome */
+  --color-black: #000000;
+  --color-white: #FFFFFF;
+  --color-gray-50: #FAFAFA;
+  --color-gray-100: #F5F5F5;
+  --color-gray-200: #EAEAEA;
+  --color-gray-300: #DDDDDD;
+  --color-gray-500: #777777;
+  --color-gray-700: #4A4A4A;
+
+  --color-text-primary: #000000;
+  --color-text-secondary: #4A4A4A;
+  --color-text-muted: #777777;
+  --color-border: #DDDDDD;
+  --color-border-soft: #EAEAEA;
+  --color-error: #B00020;
+
+  /* Spacing */
+  --page-padding-x: 32px;
+  --page-padding-y: 28px;
+  --section-gap: 120px;
+
+  /* Typography */
+  --text-hero: clamp(72px, 8vw, 112px);
+}
+
+@media (max-width: 768px) {
+  :root {
+    --page-padding-x: 20px;
+    --page-padding-y: 24px;
+    --section-gap: 72px;
+    --text-hero: clamp(48px, 14vw, 68px);
+  }
+}
+
+@media (min-width: 1280px) {
+  :root {
+    --page-padding-x: 48px;
+    --section-gap: 140px;
+  }
+}
+
+@theme inline {
+  --color-background: var(--color-white);
+  --color-foreground: var(--color-black);
+  --color-surface: var(--color-gray-50);
+  --color-subtle: var(--color-gray-100);
+  --color-border: var(--color-gray-300);
+  --color-border-soft: var(--color-gray-200);
+  --color-muted: var(--color-gray-500);
+  --color-secondary: var(--color-gray-700);
+  --color-error: #B00020;
+  --font-sans: var(--font-inter);
+}
+
+body {
+  background: var(--color-white);
+  color: var(--color-black);
+  font-family: var(--font-inter), Inter, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Reset */
+* {
+  box-shadow: none;
+}
+
+button, input, textarea, select {
+  border-radius: 0;
+  font-family: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Selection */
+::selection {
+  background: var(--color-black);
+  color: var(--color-white);
+}
+
+/* Scrollbar - subtle */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-gray-300);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gray-500);
+}

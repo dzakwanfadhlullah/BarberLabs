@@ -30,7 +30,7 @@ export function Header() {
             alt="Barberlabs"
             width={180}
             height={44}
-            className="h-18 md:h-25 w-auto"
+            className="h-[18px] md:h-[25px] w-auto"
             priority
           />
         </Link>

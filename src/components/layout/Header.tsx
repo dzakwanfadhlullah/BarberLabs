@@ -28,9 +28,9 @@ export function Header() {
           <Image
             src="/images/logo.png"
             alt="Barberlabs"
-            width={200}
-            height={43}
-            className="h-6 md:h-8 w-auto"
+            width={180}
+            height={44}
+            className="h-18 md:h-25 w-auto"
             priority
           />
         </Link>

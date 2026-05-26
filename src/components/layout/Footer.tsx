@@ -45,7 +45,7 @@ export function Footer() {
               alt="Barberlabs"
               width={120}
               height={28}
-              className="h-6 w-auto opacity-50"
+              className="h-15 w-auto opacity-100"
             />
             <span className="text-[13px] text-[var(--color-text-muted)]">
               © 2026

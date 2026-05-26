@@ -52,7 +52,7 @@ export default function HomePage() {
             ))}
           </div>
           <p className="mt-4 text-[13px] text-[var(--color-text-muted)]">
-            All services by appointment only.
+            All Haircut including Beard & Moustache trim, Hairwash, Hot towel, Blowdry, Quick massage, Hairtonic and Styling with product. Don&apos;t worry our service is GUARANTEED 3 DAYS.
           </p>
         </motion.div>
       </div>

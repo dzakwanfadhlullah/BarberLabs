@@ -43,9 +43,9 @@ export function Footer() {
             <Image
               src="/images/logo.png"
               alt="Barberlabs"
-              width={120}
-              height={28}
-              className="h-10 w-auto opacity-70"
+              width={1078}
+              height={231}
+              className="h-[18px] w-auto opacity-80"
             />
             <span className="text-[13px] text-[var(--color-text-muted)]">
               © 2026

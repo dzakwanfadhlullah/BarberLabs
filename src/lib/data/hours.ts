@@ -38,3 +38,7 @@ export function isOpenToday(): boolean {
   const today = hours.find(h => h.day === dayNames[dayIndex]);
   return today ? !today.isClosed : false;
 }
+
+export function getBranchById(id: number): Branch | undefined {
+  return branches.find((branch) => branch.id === id);
+}

@@ -3,12 +3,13 @@
 import { Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { motion } from 'framer-motion';
-import { CheckCircle2, MapPin, MessageCircle } from 'lucide-react';
+import { CheckCircle2 } from 'lucide-react';
 import { locationInfo } from '@/lib/data/hours';
 import { EditorialLink } from '@/components/ui/EditorialLink';
 
 function ConfirmedContent() {
   const params = useSearchParams();
+  const branch = params.get('branch');
   const service = params.get('service');
   const barber = params.get('barber');
   const date = params.get('date');
@@ -32,7 +33,7 @@ function ConfirmedContent() {
       </motion.div>
 
       {/* Booking details */}
-      {(service || barber || date || time) && (
+      {(branch || service || barber || date || time) && (
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -40,6 +41,12 @@ function ConfirmedContent() {
           className="mt-10 border border-[var(--color-border)] p-5"
         >
           <div className="space-y-4">
+            {branch && (
+              <div>
+                <p className="text-[12px] uppercase text-[var(--color-text-muted)] tracking-wide">Branch</p>
+                <p className="text-[15px] font-semibold text-black mt-0.5">{branch}</p>
+              </div>
+            )}
             {service && (
               <div>
                 <p className="text-[12px] uppercase text-[var(--color-text-muted)] tracking-wide">Service</p>
@@ -48,7 +55,7 @@ function ConfirmedContent() {
             )}
             {barber && (
               <div>
-                <p className="text-[12px] uppercase text-[var(--color-text-muted)] tracking-wide">Barber</p>
+                <p className="text-[12px] uppercase text-[var(--color-text-muted)] tracking-wide">Capster</p>
                 <p className="text-[15px] font-semibold text-black mt-0.5">{barber}</p>
               </div>
             )}

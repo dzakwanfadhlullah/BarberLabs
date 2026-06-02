@@ -7,6 +7,7 @@ interface BookingBarberSelectorProps {
   barbers: Barber[];
   selected: Barber | null;
   isAnyBarber: boolean;
+  branchName?: string;
   onSelect: (barber: Barber | null) => void;
 }
 
@@ -14,11 +15,19 @@ export function BookingBarberSelector({
   barbers,
   selected,
   isAnyBarber,
+  branchName,
   onSelect,
 }: BookingBarberSelectorProps) {
+  if (barbers.length === 0) {
+    return (
+      <p className="text-[14px] text-[var(--color-text-muted)] py-4">
+        Select a branch first.
+      </p>
+    );
+  }
+
   return (
     <div>
-      {/* Any Barber option */}
       <button
         type="button"
         onClick={() => onSelect(null)}
@@ -29,11 +38,13 @@ export function BookingBarberSelector({
         }`}
       >
         <div className="w-10 h-10 rounded-full bg-[var(--color-gray-100)] flex items-center justify-center">
-          <span className="text-[14px] font-medium text-[var(--color-text-muted)]">✦</span>
+          <span className="text-[14px] font-medium text-[var(--color-text-muted)]">+</span>
         </div>
         <div>
-          <p className="text-[15px] font-semibold text-black">Any Barber</p>
-          <p className="text-[12px] text-[var(--color-text-muted)]">First available</p>
+          <p className="text-[15px] font-semibold text-black">Any Capster</p>
+          <p className="text-[12px] text-[var(--color-text-muted)]">
+            First available{branchName ? ` at ${branchName}` : ''}
+          </p>
         </div>
         <div
           className={`w-5 h-5 rounded-full border-2 flex items-center justify-center transition-all duration-180 ${
@@ -46,7 +57,6 @@ export function BookingBarberSelector({
         </div>
       </button>
 
-      {/* Individual barbers */}
       {barbers.map((barber) => {
         const isSelected = !isAnyBarber && selected?.id === barber.id;
         return (

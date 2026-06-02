@@ -13,6 +13,7 @@ export interface Barber {
   id: string;
   name: string;
   slug: string;
+  branchId: number;
   specialty: string;
   shortBio: string;
   availability: string;

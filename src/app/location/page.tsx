@@ -17,6 +17,14 @@ export default function LocationPage() {
               <div key={b.id} className="py-0.5">
                 <p className="text-[15px] font-bold text-black">{b.name}</p>
                 <p className="text-[14px] text-[var(--color-text-secondary)] mt-1">{b.address}</p>
+                <a
+                  href={b.mapsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-2 inline-block text-[13px] font-semibold text-black border-b border-black pb-1"
+                >
+                  Open branch map
+                </a>
               </div>
             ))}
           </div>

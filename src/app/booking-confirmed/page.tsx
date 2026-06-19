@@ -14,6 +14,8 @@ function ConfirmedContent() {
   const barber = params.get('barber');
   const date = params.get('date');
   const time = params.get('time');
+  const mapsUrl = params.get('maps') || locationInfo.mapsUrl;
+  const whatsappUrl = params.get('whatsapp') || locationInfo.whatsappUrl;
 
   return (
     <div className="px-[var(--page-padding-x)] pb-[var(--section-gap)] max-w-xl">
@@ -28,7 +30,7 @@ function ConfirmedContent() {
           Booking request sent
         </h1>
         <p className="mt-4 text-[16px] leading-[1.5] text-[var(--color-text-secondary)]">
-          We will confirm your appointment via WhatsApp.
+          We will confirm your appointment via WhatsApp. If WhatsApp did not open, use the link below.
         </p>
       </motion.div>
 
@@ -89,11 +91,11 @@ function ConfirmedContent() {
         transition={{ duration: 0.5, delay: 0.3 }}
         className="mt-8 flex flex-col sm:flex-row gap-4"
       >
-        <EditorialLink href={locationInfo.mapsUrl} external>
-          Open Maps
+        <EditorialLink href={whatsappUrl} external>
+          Open WhatsApp
         </EditorialLink>
-        <EditorialLink href={locationInfo.whatsappUrl} external>
-          Contact via WhatsApp
+        <EditorialLink href={mapsUrl} external>
+          Open Maps
         </EditorialLink>
         <EditorialLink href="/">Back to Home</EditorialLink>
       </motion.div>

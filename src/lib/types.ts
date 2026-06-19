@@ -67,6 +67,7 @@ export interface LocationInfo {
   street: string;
   city: string;
   mapsUrl: string;
+  instagramUrl: string;
   whatsappNumber: string;
   whatsappUrl: string;
   paymentMethods: string[];
@@ -77,4 +78,5 @@ export interface Branch {
   id: number;
   name: string;
   address: string;
+  mapsUrl: string;
 }

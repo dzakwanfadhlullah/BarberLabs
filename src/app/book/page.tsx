@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 import { MessageCircle, CalendarClock, Clock, AlertCircle } from 'lucide-react';
 import { services, getServiceById } from '@/lib/data/services';
 import { getBarberById, getBarbersByBranchId } from '@/lib/data/barbers';
-import { hours, branches, getBranchById } from '@/lib/data/hours';
+import { hours, branches, getBranchById, locationInfo } from '@/lib/data/hours';
 import { Service, Barber, Branch } from '@/lib/types';
 import { SectionLabel } from '@/components/ui/SectionLabel';
 import { PrimaryButton } from '@/components/ui/PrimaryButton';
@@ -19,8 +19,27 @@ import { TimeSlotPicker, generateTimeSlots } from '@/components/booking/TimeSlot
 import { ContactFields } from '@/components/booking/ContactFields';
 import { BookingSummary, formatDate } from '@/components/booking/BookingSummary';
 
-const WHATSAPP_NUMBER = '6281234567890';
 const DAY_INDEXES = [0, 1, 2, 3, 4, 5, 6];
+
+function normalizeWhatsappNumber(value: string): string | null {
+  let digits = value.replace(/\D/g, '');
+
+  if (digits.startsWith('0')) {
+    digits = `62${digits.slice(1)}`;
+  } else if (digits.startsWith('8')) {
+    digits = `62${digits}`;
+  }
+
+  if (!digits.startsWith('62') || digits.length < 10 || digits.length > 15) {
+    return null;
+  }
+
+  return `+${digits}`;
+}
+
+function getBusinessWhatsappNumber(): string {
+  return locationInfo.whatsappNumber.replace(/\D/g, '');
+}
 
 function getClosedDaysFromHours() {
   return hours.filter(h => h.isClosed).map(h => {
@@ -118,7 +137,11 @@ function BookingContent() {
     else if (field === 'whatsapp') setWhatsapp(value as string);
     else if (field === 'notes') setNotes(value as string);
     else if (field === 'policyAccepted') setPolicyAccepted(value as boolean);
-    setErrors(prev => ({ ...prev, [field]: '' }));
+    setErrors(prev => ({
+      ...prev,
+      [field]: '',
+      ...(field === 'policyAccepted' ? { policy: '' } : {}),
+    }));
   };
 
   const validate = (): boolean => {
@@ -128,7 +151,7 @@ function BookingContent() {
     if (!selectedDate) e.date = 'Choose a date.';
     if (!selectedTime) e.time = 'Choose a time.';
     if (!name.trim()) e.name = 'Enter your name.';
-    if (!whatsapp.trim() || whatsapp.trim().length < 8) e.whatsapp = 'Enter a valid WhatsApp number.';
+    if (!normalizeWhatsappNumber(whatsapp)) e.whatsapp = 'Enter a valid WhatsApp number.';
     if (!policyAccepted) e.policy = 'Please accept the booking policy.';
     setErrors(e);
     return Object.keys(e).length === 0;
@@ -139,10 +162,11 @@ function BookingContent() {
 
     const barberName = isAnyBarber ? 'Any Capster' : selectedBarber?.name || 'Any Capster';
     const dateStr = formatDate(selectedDate);
+    const customerWhatsapp = normalizeWhatsappNumber(whatsapp)!;
     const msg = encodeURIComponent(
-      `Hello Barber Labs, I want to book an appointment.\n\nBranch: ${selectedBranch!.name}\nAddress: ${selectedBranch!.address}\nService: ${selectedService!.name}\nCapster: ${barberName}\nDate: ${dateStr}\nTime: ${selectedTime}\nName: ${name}\nWhatsApp: ${whatsapp}${notes ? `\nNotes: ${notes}` : ''}`
+      `Hello Barber Labs, I want to book an appointment.\n\nBranch: ${selectedBranch!.name}\nAddress: ${selectedBranch!.address}\nService: ${selectedService!.name}\nCapster: ${barberName}\nDate: ${dateStr}\nTime: ${selectedTime}\nName: ${name.trim()}\nWhatsApp: ${customerWhatsapp}${notes.trim() ? `\nNotes: ${notes.trim()}` : ''}`
     );
-    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`;
+    const url = `https://wa.me/${getBusinessWhatsappNumber()}?text=${msg}`;
     window.open(url, '_blank');
 
     const params = new URLSearchParams({
@@ -151,6 +175,8 @@ function BookingContent() {
       barber: barberName,
       date: dateStr,
       time: selectedTime!,
+      maps: selectedBranch!.mapsUrl,
+      whatsapp: url,
     });
     router.push(`/booking-confirmed?${params.toString()}`);
   };
@@ -260,7 +286,7 @@ function BookingContent() {
                 </PrimaryButton>
               </div>
               <p className="mt-3 text-[12px] text-[var(--color-text-muted)]">
-                Your booking is secure and confidential.
+                Request only. We confirm your appointment via WhatsApp.
               </p>
             </div>
 

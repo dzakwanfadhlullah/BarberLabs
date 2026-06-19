@@ -8,7 +8,7 @@ export function Footer() {
       <div className="px-[var(--page-padding-x)] py-7 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
         <div className="flex items-center gap-6 md:gap-8">
           <a
-            href="https://instagram.com"
+            href={locationInfo.instagramUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="text-[14px] font-medium text-[var(--color-text-muted)] hover:text-black transition-colors duration-180"
@@ -56,4 +56,3 @@ export function Footer() {
     </footer>
   );
 }
-

@@ -10,7 +10,7 @@ export const cuts: Cut[] = [
     image: '/images/cut-low-fade.jpg',
     barberId: 'galang',
     barberName: 'Galang',
-    serviceId: 'fade-taper',
+    serviceId: 'superior-haircut',
     shortDescription: 'Clean low fade with natural texture and soft neckline.',
   },
   {
@@ -34,7 +34,7 @@ export const cuts: Cut[] = [
     image: '/images/cut-mid-taper.jpg',
     barberId: 'aldit',
     barberName: 'Aldit',
-    serviceId: 'fade-taper',
+    serviceId: 'superior-haircut',
     shortDescription: 'Classic mid taper with seamless blend and clean finish.',
   },
   {
@@ -70,7 +70,7 @@ export const cuts: Cut[] = [
     image: '/images/cut-textured-crop.jpg',
     barberId: 'budi',
     barberName: 'Budi',
-    serviceId: 'regular-cut',
+    serviceId: 'long-trim-haircut',
     shortDescription: 'Textured top with clean short sides. Natural and relaxed.',
   },
   {
@@ -82,7 +82,7 @@ export const cuts: Cut[] = [
     image: '/images/cut-beard.jpg',
     barberId: 'aldit',
     barberName: 'Aldit',
-    serviceId: 'beard-trim',
+    serviceId: 'superior-haircut',
     shortDescription: 'Defined beard lines with precise edge work.',
   },
   {
@@ -94,7 +94,7 @@ export const cuts: Cut[] = [
     image: '/images/cut-curly-top.jpg',
     barberId: 'budi',
     barberName: 'Budi',
-    serviceId: 'regular-cut',
+    serviceId: 'long-trim-haircut',
     shortDescription: 'Maintained curls on top with faded sides.',
   },
   {
@@ -118,7 +118,7 @@ export const cuts: Cut[] = [
     image: '/images/cut-skin-fade.jpg',
     barberId: 'galang',
     barberName: 'Galang',
-    serviceId: 'fade-taper',
+    serviceId: 'superior-haircut',
     shortDescription: 'Tight skin fade with sharp line-up and zero blend.',
   },
 ];

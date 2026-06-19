@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import { cuts, getCutBySlug, getRelatedCuts } from '@/lib/data/cuts';
+import { getServiceById } from '@/lib/data/services';
 import { SectionLabel } from '@/components/ui/SectionLabel';
 import { EditorialLink } from '@/components/ui/EditorialLink';
 import { GalleryItem } from '@/components/ui/GalleryItem';
@@ -15,9 +16,10 @@ export default async function CutDetailPage({ params }: { params: Promise<{ slug
   if (!cut) notFound();
 
   const related = getRelatedCuts(slug, 4);
+  const service = cut.serviceId ? getServiceById(cut.serviceId) : null;
 
   const bookParams = new URLSearchParams();
-  if (cut.serviceId) bookParams.set('service', cut.serviceId);
+  if (service) bookParams.set('service', service.id);
   if (cut.barberId) bookParams.set('barber', cut.barberId);
 
   return (
@@ -40,7 +42,7 @@ export default async function CutDetailPage({ params }: { params: Promise<{ slug
               <div>
                 <p className="text-[12px] uppercase text-[var(--color-text-muted)] tracking-wide">Service</p>
                 <p className="text-[15px] font-semibold text-black mt-0.5">
-                  {cut.serviceId === 'fade-taper' ? 'Fade / Taper' : cut.serviceId === 'regular-cut' ? 'Regular Cut' : cut.serviceId === 'beard-trim' ? 'Beard Trim' : cut.serviceId}
+                  {service?.name || 'Ask us via WhatsApp'}
                 </p>
               </div>
             )}

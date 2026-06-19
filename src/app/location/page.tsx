@@ -2,6 +2,7 @@ import { hours, locationInfo, formatHours, branches } from '@/lib/data/hours';
 import { PageHero } from '@/components/ui/PageHero';
 import { SectionLabel } from '@/components/ui/SectionLabel';
 import { EditorialLink } from '@/components/ui/EditorialLink';
+import { MobileBookingBar } from '@/components/ui/MobileBookingBar';
 
 export default function LocationPage() {
   return (
@@ -70,6 +71,7 @@ export default function LocationPage() {
           </div>
         </div>
       </div>
+      <MobileBookingBar href="/book" label="Book Appointment" />
     </div>
   );
 }

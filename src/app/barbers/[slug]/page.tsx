@@ -5,6 +5,7 @@ import { cuts } from '@/lib/data/cuts';
 import { EditorialLink } from '@/components/ui/EditorialLink';
 import { SectionLabel } from '@/components/ui/SectionLabel';
 import { GalleryItem } from '@/components/ui/GalleryItem';
+import { MobileBookingBar } from '@/components/ui/MobileBookingBar';
 
 export function generateStaticParams() {
   return barbers.map((b) => ({ slug: b.slug }));
@@ -66,6 +67,7 @@ export default async function BarberDetailPage({ params }: { params: Promise<{ s
           </div>
         </div>
       )}
+      <MobileBookingBar href={`/book?barber=${barber.id}`} label={`Book with ${barber.name.split(' ')[0]}`} />
     </div>
   );
 }

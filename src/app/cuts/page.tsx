@@ -2,10 +2,11 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { cuts, cutCategories, getCutsByCategory } from '@/lib/data/cuts';
+import { cutCategories, getCutsByCategory } from '@/lib/data/cuts';
 import { PageHero } from '@/components/ui/PageHero';
 import { GalleryItem } from '@/components/ui/GalleryItem';
 import { EditorialLink } from '@/components/ui/EditorialLink';
+import { MobileBookingBar } from '@/components/ui/MobileBookingBar';
 
 export default function CutsPage() {
   const [activeFilter, setActiveFilter] = useState('All');
@@ -68,6 +69,7 @@ export default function CutsPage() {
       <div className="mt-10">
         <EditorialLink href="/book">Book Appointment</EditorialLink>
       </div>
+      <MobileBookingBar href="/book" label="Book Appointment" />
     </div>
   );
 }

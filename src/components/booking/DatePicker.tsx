@@ -104,13 +104,13 @@ export function DatePicker({ selected, onSelect, closedDays = [0, 1] }: DatePick
       {/* Desktop: Monthly Calendar */}
       <div className="hidden md:block">
         <div className="flex items-center justify-between mb-4">
-          <button type="button" onClick={prevMonth} className="p-1 hover:bg-[var(--color-gray-100)] transition-colors">
+          <button type="button" aria-label="Previous month" onClick={prevMonth} className="p-1 hover:bg-[var(--color-gray-100)] transition-colors">
             <ChevronLeft className="w-4 h-4" />
           </button>
           <span className="text-[15px] font-semibold text-black">
             {MONTH_NAMES[viewMonth]} {viewYear}
           </span>
-          <button type="button" onClick={nextMonth} className="p-1 hover:bg-[var(--color-gray-100)] transition-colors">
+          <button type="button" aria-label="Next month" onClick={nextMonth} className="p-1 hover:bg-[var(--color-gray-100)] transition-colors">
             <ChevronRight className="w-4 h-4" />
           </button>
         </div>
@@ -132,6 +132,8 @@ export function DatePicker({ selected, onSelect, closedDays = [0, 1] }: DatePick
                 key={day.toISOString()}
                 type="button"
                 disabled={disabled}
+                aria-pressed={sel}
+                aria-label={`Select ${day.toLocaleDateString('en-US', { weekday: 'short', day: 'numeric', month: 'short', year: 'numeric' })}`}
                 onClick={() => !disabled && onSelect(day)}
                 className={`h-10 text-[14px] tabular-nums transition-all duration-180 ${
                   sel
@@ -153,13 +155,13 @@ export function DatePicker({ selected, onSelect, closedDays = [0, 1] }: DatePick
       {/* Mobile: Weekly Date Strip */}
       <div className="md:hidden">
         <div className="flex items-center justify-between mb-4">
-          <button type="button" onClick={prevWeek} className="p-1">
+          <button type="button" aria-label="Previous week" onClick={prevWeek} className="p-1">
             <ChevronLeft className="w-4 h-4" />
           </button>
           <span className="text-[14px] font-semibold text-black">
             {MONTH_NAMES[weekDays[0].getMonth()]} {weekDays[0].getFullYear()}
           </span>
-          <button type="button" onClick={nextWeek} className="p-1">
+          <button type="button" aria-label="Next week" onClick={nextWeek} className="p-1">
             <ChevronRight className="w-4 h-4" />
           </button>
         </div>
@@ -176,6 +178,8 @@ export function DatePicker({ selected, onSelect, closedDays = [0, 1] }: DatePick
                 key={day.toISOString()}
                 type="button"
                 disabled={disabled}
+                aria-pressed={sel}
+                aria-label={`Select ${day.toLocaleDateString('en-US', { weekday: 'short', day: 'numeric', month: 'short', year: 'numeric' })}`}
                 onClick={() => !disabled && onSelect(day)}
                 className={`flex flex-col items-center py-3 transition-all duration-180 ${
                   sel

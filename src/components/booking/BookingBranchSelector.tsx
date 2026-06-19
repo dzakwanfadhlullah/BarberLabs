@@ -22,6 +22,7 @@ export function BookingBranchSelector({
           <button
             key={branch.id}
             type="button"
+            aria-pressed={isSelected}
             onClick={() => onSelect(branch)}
             className={`w-full text-left grid grid-cols-[1fr_auto] items-center gap-4 py-4 border-b transition-all duration-180 ${
               isSelected

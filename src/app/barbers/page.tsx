@@ -2,6 +2,7 @@ import { barbers } from '@/lib/data/barbers';
 import { PageHero } from '@/components/ui/PageHero';
 import { BarberRow } from '@/components/ui/BarberRow';
 import { EditorialLink } from '@/components/ui/EditorialLink';
+import { MobileBookingBar } from '@/components/ui/MobileBookingBar';
 
 export default function BarbersPage() {
   return (
@@ -21,6 +22,7 @@ export default function BarbersPage() {
       <div className="mt-8 flex flex-col sm:flex-row gap-4">
         <EditorialLink href="/book?barber=any">Book first available</EditorialLink>
       </div>
+      <MobileBookingBar href="/book?barber=any" label="Book first available" />
     </div>
   );
 }

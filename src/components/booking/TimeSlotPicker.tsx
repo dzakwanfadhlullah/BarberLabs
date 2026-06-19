@@ -26,6 +26,8 @@ export function TimeSlotPicker({ slots, selected, unavailable = [], onSelect }: 
             key={slot}
             type="button"
             disabled={isUnavail}
+            aria-pressed={isSel}
+            aria-label={`Select ${slot}`}
             onClick={() => !isUnavail && onSelect(slot)}
             className={`h-11 text-[13px] md:text-[14px] font-medium tabular-nums border transition-all duration-180 ${
               isSel

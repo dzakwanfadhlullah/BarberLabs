@@ -30,6 +30,7 @@ export function BookingBarberSelector({
     <div>
       <button
         type="button"
+        aria-pressed={isAnyBarber}
         onClick={() => onSelect(null)}
         className={`w-full text-left grid grid-cols-[40px_1fr_auto] items-center gap-3 md:gap-4 py-4 border-b transition-all duration-180 ${
           isAnyBarber
@@ -63,6 +64,7 @@ export function BookingBarberSelector({
           <button
             key={barber.id}
             type="button"
+            aria-pressed={isSelected}
             onClick={() => onSelect(barber)}
             className={`w-full text-left grid grid-cols-[40px_1fr_auto] items-center gap-3 md:gap-4 py-4 border-b transition-all duration-180 ${
               isSelected

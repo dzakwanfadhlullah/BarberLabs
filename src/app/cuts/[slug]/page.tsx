@@ -5,6 +5,7 @@ import { getServiceById } from '@/lib/data/services';
 import { SectionLabel } from '@/components/ui/SectionLabel';
 import { EditorialLink } from '@/components/ui/EditorialLink';
 import { GalleryItem } from '@/components/ui/GalleryItem';
+import { MobileBookingBar } from '@/components/ui/MobileBookingBar';
 
 export function generateStaticParams() {
   return cuts.map((cut) => ({ slug: cut.slug }));
@@ -83,6 +84,7 @@ export default async function CutDetailPage({ params }: { params: Promise<{ slug
           </div>
         </div>
       )}
+      <MobileBookingBar href={`/book?${bookParams.toString()}`} label="Book this cut" />
     </div>
   );
 }

@@ -137,7 +137,7 @@ export function getRelatedCuts(currentSlug: string, limit: number = 4): Cut[] {
   if (!current) return cuts.slice(0, limit);
   return cuts
     .filter((c) => c.slug !== currentSlug)
-    .sort((a, b) => (a.category === current.category ? -1 : 1))
+    .sort((a, b) => Number(b.category === current.category) - Number(a.category === current.category))
     .slice(0, limit);
 }
 
